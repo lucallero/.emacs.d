@@ -1,1 +1,4 @@
-Personal confgurations for emacs. If anyone what to use this just clone this repo on you home and your done.
+## .emacs.d
+Personal confgurations for emacs. If anyone want to use this just clone this repo on your home directory and your done.
+
+Actually works only with **emacs-25**.
