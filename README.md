@@ -1,0 +1,1 @@
+Personal confgurations for emacs
