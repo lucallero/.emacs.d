@@ -1,6 +1,8 @@
 (require 'package) ;; melpa packges
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'load-path
+	     "~/.emacs.d/nonelpa")
 (package-initialize) ;; 
 (global-linum-mode 1) ;;line numbers
 
@@ -53,7 +55,7 @@
     ("1e67765ecb4e53df20a96fb708a8601f6d7c8f02edb09d16c838e465ebe7f51b" default)))
  '(package-selected-packages
    (quote
-    (yaml-mode dockerfile-mode paganini-theme neotree exec-path-from-shell go-autocomplete 0blayout auto-complete go-mode))))
+    (js2-mode go-snippets yasnippet yaml-mode dockerfile-mode paganini-theme neotree exec-path-from-shell go-autocomplete 0blayout auto-complete go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
