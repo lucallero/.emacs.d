@@ -5,6 +5,7 @@
 	     "~/.emacs.d/nonelpa")
 (package-initialize) ;; 
 (global-linum-mode 1) ;;line numbers
+(toggle-truncate-lines) ;;dont't wrap lines
 
 ;;keyboard hooks
 (global-set-key [f8] 'neotree-toggle)
