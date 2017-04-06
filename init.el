@@ -8,7 +8,7 @@
 (set-default 'truncate-lines t) ;;dont't wrap lines by default
 
 
-;; Enable mouse support
+;; Enable mouse support 
 (unless window-system
   (require 'mouse)
   (xterm-mouse-mode t)
@@ -22,8 +22,18 @@
   (setq mouse-sel-mode t)
 )
 
+;;enable clipboard in emacs, copy&paste in and out emacs.
+(setq x-select-enable-clipboard t)
+(defun copy-region-to-cut-buffer (beg end)
+  (interactive "r")
+  (call-process-region beg end "pbcopy"))
+
+;;set mac command as super key
+(setq mac-command-modifier 'super)
+
 ;;keyboard hooks
 (global-set-key [f8] 'neotree-toggle)
+(global-set-key [f12] 'copy-region-to-cut-buffer)
 (global-set-key [(control x) (k)] 'kill-this-buffer)
 (global-set-key (kbd "C-c C-c") 'recompile)
 
