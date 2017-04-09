@@ -43,9 +43,9 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
-(add-to-list 'load-path "/Users/lucallero/Developer/Gowork/src/github.com/dougm/goflymake/")
+(add-to-list 'load-path "~/go/src/github.com/dougm/goflymake/")
 (require 'go-flymake)
-(add-to-list 'load-path "/Users/lucallero/Developer/Gowork/src/github.com/dougm/goflymake/")
+(add-to-list 'load-path "/go/src/github.com/dougm/goflymake/")
 (require 'go-flycheck)
 
 ;;read env variables from shell
