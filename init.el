@@ -8,6 +8,10 @@
 (set-default 'truncate-lines t) ;;dont't wrap lines by default
 
 
+;; Disable capitalization on auto-complete
+(setq ac-ignore-case nil)
+
+
 ;; Enable mouse support 
 (unless window-system
   (require 'mouse)
