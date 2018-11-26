@@ -47,30 +47,6 @@
 (global-set-key (kbd "C-c C-c") 'recompile)
 
 
-;;required packages
-(require 'go-autocomplete)
-(require 'auto-complete-config)
-(ac-config-default)
-
-(add-to-list 'load-path "~/go/src/github.com/dougm/goflymake/")
-(require 'go-flymake)
-(add-to-list 'load-path "/go/src/github.com/dougm/goflymake/")
-(require 'go-flycheck)
-
-;;read env variables from shell
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "GOPATH"))
-
-;;hooks
-(add-hook 'before-save-hook 'gofmt-before-save);;gofmt format go code uppon save
-(add-hook 'go-mode-hook (lambda ();;go imports
-                          (local-set-key (kbd "C-c i") 'go-goto-imports)))
-(add-hook 'go-mode-hook (lambda ();;go remove unused imports
-                          (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
-
-;;customize compile for golang
-(setq compile-command "go build -v");; && go test -v && go vet") ;; if needed you can add more commands on the compile call
 ;;neotree open tree incurrent file directory
 (setq neo-smart-open t)
 ;; backup in one place. flat, no tree structure
@@ -78,22 +54,19 @@
 ;; disable auto-save and auto-backup
 (setq auto-save-default nil)
 
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (paganini)))
  '(custom-safe-themes
    (quote
-    ("1e67765ecb4e53df20a96fb708a8601f6d7c8f02edb09d16c838e465ebe7f51b" default)))
- '(package-selected-packages
-   (quote
-    (rjsx-mode web-mode js2-mode go-snippets yasnippet yaml-mode dockerfile-mode paganini-theme neotree exec-path-from-shell go-autocomplete 0blayout auto-complete go-mode))))
+    ("bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(load-theme 'monokai)
