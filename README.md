@@ -8,3 +8,5 @@ Clone this repo on your home directory, you'll need to install the following pac
 monokai-theme
 
 neotree
+
+yaml-mode
