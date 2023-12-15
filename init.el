@@ -1,15 +1,16 @@
 ;;melpa packages
 (require 'package) ;; You might already have this line
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
-       (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
-  (add-to-list 'package-archives (cons "melpa" url) t))
 
-(add-to-list 'load-path
-	     "~/.emacs.d/nonelpa")
-(package-initialize) ;; 
+(when (>= emacs-major-version 24)
+  (progn
+    ;; load emacs 24's package system.
+    (require 'package)
+    ;; Add MELPA repository.
+    (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
+  (when (< emacs-major-version 27) (package-initialize)))
 
-(global-linum-mode 1) ;;line numbers
+
+;;(global-linum-mode 1) ;;line numbers
 (set-default 'truncate-lines t) ;;dont't wrap lines by default
 
 
@@ -34,11 +35,12 @@
 ;;enable clipboard in emacs, copy&paste in and out emacs.
 (setq x-select-enable-clipboard t)
 (defun copy-region-to-cut-buffer (beg end)
-  (interactive "r")
+ (interactive "r")
   (call-process-region beg end "pbcopy"))
 
 ;;set mac command as super key
 (setq mac-command-modifier 'super)
+
 
 ;;keyboard hooks
 (global-set-key [f8] 'neotree-toggle)
@@ -60,8 +62,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   (quote
-    ("bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" default))))
+   '("bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" default))
+ '(package-selected-packages '(neotree go-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -69,4 +71,4 @@
  ;; If there is more than one, they won't work right.
  )
 
-(load-theme 'monokai)
+;;(load-theme 'monokai)
